@@ -15,16 +15,16 @@ if __name__ == '__main__':
                 
         while True:
                 try:
-						if ser.isOpen() == 0:
-								print 'Re-opening a serial connection'
-								ser = serial.Serial("/dev/tty.usbserial-A900frks", 9600, timeout=1)
-						incoming = ser.readline()
-						if incoming[:len(incoming)-2] == '<CheerlightsColor>':
-								print 'Send Color Command Received'
-								sendCheerlightsColor()
-						elif len(incoming) > 0:
-								incoming = incoming[:len(incoming)-2]
-								print 'The tree acknowledges {0}.'.format(incoming)
-						incoming = ''
+                        if ser.isOpen() == 0:
+                                print 'Re-opening a serial connection'
+                                ser = serial.Serial("/dev/tty.usbserial-A900frks", 9600, timeout=1)
+                        incoming = ser.readline()
+                        if incoming[:len(incoming)-2] == '<CheerlightsColor>':
+                                print 'Send Color Command Received'
+                                sendCheerlightsColor()
+                        elif len(incoming) > 0:
+                                incoming = incoming[:len(incoming)-2]
+                                print 'The tree acknowledges {0}.'.format(incoming)
+                        incoming = ''
                 except:
                         print 'Error in main'
