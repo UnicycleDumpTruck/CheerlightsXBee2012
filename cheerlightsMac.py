@@ -1,3 +1,5 @@
+# I put this script together to use a Mac as a cheerlights color server for the Arduino Cheerlights tree. An Adafruit FTDI friend connects the XBee to the Mac.
+
 import serial, scrapelib, json, time
 
 def sendCheerlightsColor():

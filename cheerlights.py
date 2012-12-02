@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+# I put this script together to allow my Raspberry Pi to act as a color server for my Arduino Cheerlights tree. The XBee module is connected to the 3.3V, RX, and TX pins on the Pi's GPIO (http://baldwisdom.com/preparing-for-a-la-mode-raspberry-pi-and-arduino/) and the console was disabled (http://www.irrational.net/2012/04/19/using-the-raspberry-pis-serial-port/). I have the script set to run on boot (http://elinux.org/RPi_Email_IP_On_Boot_Debian).
+
 import serial, scrapelib, json, time
 
 def sendCheerlightsColor():
