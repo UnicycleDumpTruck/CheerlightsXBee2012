@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import serial, scrapelib, json, time
 
 def sendCheerlightsColor():
@@ -11,15 +12,15 @@ def sendCheerlightsColor():
 
 if __name__ == '__main__':
         s = scrapelib.Scraper(requests_per_minute=5, follow_robots=True)
-        ser = serial.Serial("/dev/tty.usbserial-A900frks", 9600, timeout=1)
-                
+        ser = serial.Serial("/dev/ttyAMA0", 9600, timeout=1)
+        print ser                
         while True:
                 try:
                         if ser.isOpen() == 0:
                                 print 'Re-opening a serial connection'
-                                ser = serial.Serial("/dev/tty.usbserial-A900frks", 9600, timeout=1)
+                                ser = serial.Serial("/dev/ttyAMA0", 9600, timeout=1)
                         incoming = ser.readline()
-                        if incoming[:len(incoming)-2] == '<CheerlightsColor>':
+                        if incoming[:len(incoming)-2] == 'CheerlightsColor':
                                 print 'Send Color Command Received'
                                 sendCheerlightsColor()
                         elif len(incoming) > 0:
@@ -28,3 +29,4 @@ if __name__ == '__main__':
                         incoming = ''
                 except:
                         print 'Error in main'
+                time.sleep(5)

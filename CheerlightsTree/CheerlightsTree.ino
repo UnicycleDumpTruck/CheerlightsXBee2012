@@ -50,7 +50,7 @@ void updateColor()                     // run over and over again
 {
   Serial.println("updateColor was called.");
   char charIn;
-  xBeeSerial.println("<CheerlightsColor>");
+  xBeeSerial.println("CheerlightsColor");
   delay(5000);
   while(xBeeSerial.available()){  //is there anything to read?
     charIn = xBeeSerial.read(); // read a char from the buffer
@@ -164,10 +164,10 @@ void updateColor()                     // run over and over again
       Serial.println("End of color processing loop");
     } else {
       response += charIn; // append that char to the string response
-//      Serial.print(charIn);
-//      Serial.println(" added");
-//      Serial.print("Response: ");
-//      Serial.println(response);
+      Serial.print(charIn);
+      Serial.println(" added");
+      Serial.print("Response: ");
+      Serial.println(response);
     }  
   }
 
