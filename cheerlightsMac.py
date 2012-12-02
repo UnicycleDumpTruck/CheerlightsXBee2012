@@ -19,7 +19,7 @@ if __name__ == '__main__':
                                 print 'Re-opening a serial connection'
                                 ser = serial.Serial("/dev/tty.usbserial-A900frks", 9600, timeout=1)
                         incoming = ser.readline()
-                        if incoming[:len(incoming)-2] == '<CheerlightsColor>':
+                        if incoming[:len(incoming)-2] == 'CheerlightsColor':
                                 print 'Send Color Command Received'
                                 sendCheerlightsColor()
                         elif len(incoming) > 0:
